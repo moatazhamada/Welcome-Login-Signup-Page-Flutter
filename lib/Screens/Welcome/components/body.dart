@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Login/login_screen.dart';
-import 'package:flutter_auth/Screens/Signup/signup_screen.dart';
-import 'package:flutter_auth/Screens/Welcome/components/background.dart';
-import 'package:flutter_auth/components/rounded_button.dart';
-import 'package:flutter_auth/constants.dart';
+import 'package:next/Screens/Login/login_screen.dart';
+import 'package:next/Screens/Signup/signup_screen.dart';
+import 'package:next/Screens/Welcome/components/background.dart';
+import 'package:next/components/already_have_an_account_acheck.dart';
+import 'package:next/components/rounded_button.dart';
+import 'package:next/components/rounded_button_with_image.dart';
+import 'package:next/constants.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
@@ -16,18 +18,45 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              "WELCOME TO EDU",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
             SizedBox(height: size.height * 0.05),
-            SvgPicture.asset(
-              "assets/icons/chat.svg",
-              height: size.height * 0.45,
+            Image.asset(
+              "assets/images/logo_with_text.png",
+              height: size.height * 0.25,
             ),
             SizedBox(height: size.height * 0.05),
             RoundedButton(
-              text: "LOGIN",
+              text: "Continue Without Login",
+              color: kPrimaryColor,
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SignUpScreen();
+                    },
+                  ),
+                );
+              },
+            ),
+            RoundedButtonWithIcon(
+              text: "Login with Facebook",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginScreen();
+                    },
+                  ),
+                );
+              },
+              textColor: Colors.black,
+              color: kPrimaryLightColor,
+              iconSrc: "assets/icons/facebook.svg",
+            ),
+            RoundedButton(
+              text: "LOG IN",
+              color: kPrimaryColor,
               press: () {
                 Navigator.push(
                   context,
@@ -39,20 +68,20 @@ class Body extends StatelessWidget {
                 );
               },
             ),
-            RoundedButton(
-              text: "SIGN UP",
-              color: kPrimaryLightColor,
-              textColor: Colors.black,
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignUpScreen();
-                    },
-                  ),
-                );
-              },
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0,horizontal: 0.0),
+              child: AlreadyHaveAnAccountCheck(
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SignUpScreen();
+                      },
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Welcome/welcome_screen.dart';
-import 'package:flutter_auth/constants.dart';
+import 'package:next/Screens/Welcome/welcome_screen.dart';
+import 'package:next/constants.dart';
+
+import 'constants.dart';
 
 void main() => runApp(MyApp());
 
