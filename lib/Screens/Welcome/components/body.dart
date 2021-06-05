@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:next/Screens/CallUs/call_us_screen.dart';
 import 'package:next/Screens/Login/login_screen.dart';
 import 'package:next/Screens/Signup/signup_screen.dart';
 import 'package:next/Screens/Welcome/components/background.dart';
@@ -6,7 +7,6 @@ import 'package:next/components/already_have_an_account_acheck.dart';
 import 'package:next/components/rounded_button.dart';
 import 'package:next/components/rounded_button_with_image.dart';
 import 'package:next/constants.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -32,7 +32,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return SignUpScreen();
+                      return CallUsScreen();
                     },
                   ),
                 );
